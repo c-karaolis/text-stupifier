@@ -13,7 +13,6 @@
 		});
 
 		stupifiedResponse = await response.json();
-		console.log(stupifiedResponse);
 	}
 </script>
 
