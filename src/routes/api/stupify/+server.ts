@@ -5,7 +5,7 @@ function stupify(text: string): string {
 	let stupified = '';
 	let nonChar = 0;
 	for (let i = 0; i < text.length; i++) {
-		if (text[i].match(/[\s$-/:-?{-~!"^_`\[\]]/)) {
+		if (text[i].match(/[\s$-/:-?{-~!"^_`\[\]0-9]/)) {
 			stupified += text[i];
 			nonChar++;
 		} else if ((i-nonChar) % 2 === 0) {
