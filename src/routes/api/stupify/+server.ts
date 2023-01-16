@@ -3,19 +3,15 @@ import type { RequestHandler } from './$types';
 
 function stupify(text: string): string {
 	let stupified = '';
-	let whiteSpace = true;
+	let whiteSpace = 0;
 	for (let i = 0; i < text.length; i++) {
 		if (text[i] === ' ') {
 			stupified += ' ';
-			whiteSpace = true;
-		} else if (whiteSpace) {
+			whiteSpace++;
+		} else if ((i-whiteSpace) % 2 === 0) {
 			stupified += text[i].toLowerCase();
-
-			whiteSpace = false;
-		} else if (!whiteSpace) {
+		} else {
 			stupified += text[i].toUpperCase();
-
-			whiteSpace = true;
 		}
 	}
 	return stupified;
