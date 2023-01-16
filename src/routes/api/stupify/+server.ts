@@ -3,12 +3,12 @@ import type { RequestHandler } from './$types';
 
 function stupify(text: string): string {
 	let stupified = '';
-	let whiteSpace = 0;
+	let nonChar = 0;
 	for (let i = 0; i < text.length; i++) {
-		if (text[i] === ' ') {
-			stupified += ' ';
-			whiteSpace++;
-		} else if ((i-whiteSpace) % 2 === 0) {
+		if (text[i].match(/[\s$-/:-?{-~!"^_`\[\]]/)) {
+			stupified += text[i];
+			nonChar++;
+		} else if ((i-nonChar) % 2 === 0) {
 			stupified += text[i].toLowerCase();
 		} else {
 			stupified += text[i].toUpperCase();
