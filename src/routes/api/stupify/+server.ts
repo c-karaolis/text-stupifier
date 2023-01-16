@@ -5,9 +5,9 @@ function stupify(text: string): string {
 	let stupified = '';
 	for (let i = 0; i < text.length; i++) {
 		if (i % 2 === 0) {
-			stupified += text[i].toUpperCase();
-		} else {
 			stupified += text[i].toLowerCase();
+		} else {
+			stupified += text[i].toUpperCase();
 		}
 	}
 	return stupified;
